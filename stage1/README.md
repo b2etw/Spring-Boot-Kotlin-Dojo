@@ -5,4 +5,4 @@
 * Spring with Kotlin
   * https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin
 * Project Setup
-  * https://github.com/b2etw/event-2020-1-kotlin/tree/master/images/stage1
+  * https://github.com/b2etw/Spring-Boot-Dojo/tree/master/stage1/images
