@@ -1,9 +1,13 @@
 # Agenda
-* 聖佑複習，Vincent補充
+* Stage2 Sample Code
+  * https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/tree/master/stage2/demo-simple-crud
+* Shengyou Review Time
 * Spring 3 IOC Sample Code
-  * https://github.com/b2etw/event-2020-1-kotlin/raw/master/demo-ioc-spring.zip
-* Test
+  * https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/tree/master/stage3/demo-ioc-spring
+* Let's Write Some Unit Test
+
 ---
+
 # References
 * https://openhome.cc/Gossip/Spring/IoC.html
 * https://openhome.cc/Gossip/SpringGossip/DI.html

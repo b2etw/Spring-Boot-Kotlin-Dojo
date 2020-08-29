@@ -1,5 +1,5 @@
 * https://github.com/b2etw/Spring-Boot-Dojo/tree/master/stage2/images
-* 複習
+* review
 * image 1~6
 * https://hub.docker.com/_/mysql
 ```sh
