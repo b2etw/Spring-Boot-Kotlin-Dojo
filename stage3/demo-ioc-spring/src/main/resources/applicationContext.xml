@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <!-- Scan for spring annotated components -->
+    <context:component-scan base-package="org.yfr"/>
+    <!-- Process annotations on registered beans like @Autowired... -->
+    <context:annotation-config/>
+
+    <bean id="repositoryQ" class="org.yfr.RepositoryQ"/>
+    <bean id="repositoryV" class="org.yfr.RepositoryV"/>
+
+    <bean id="service2Lower" class="org.yfr.Service2Lower">
+        <property name="repository" ref="repositoryQ"/>
+    </bean>
+    <bean id="service2Upper" class="org.yfr.Service2Upper">
+        <property name="repository" ref="repositoryQ"/>
+    </bean>
+
+    <bean id="controller" class="org.yfr.Controller">
+        <property name="service" ref="service2Lower"/>
+    </bean>
+</beans>
