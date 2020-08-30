@@ -15,13 +15,16 @@
     <bean id="repositoryV" class="org.yfr.RepositoryV"/>
 
     <bean id="service2Lower" class="org.yfr.Service2Lower">
-        <property name="repository" ref="repositoryQ"/>
+        <!--        <property name="repository" ref="repositoryQ"/>-->
+        <constructor-arg index="0" ref="repositoryQ"/>
     </bean>
     <bean id="service2Upper" class="org.yfr.Service2Upper">
-        <property name="repository" ref="repositoryQ"/>
+        <!--        <property name="repository" ref="repositoryQ"/>-->
+        <constructor-arg index="0" ref="repositoryQ"/>
     </bean>
 
     <bean id="controller" class="org.yfr.Controller">
-        <property name="service" ref="service2Lower"/>
+        <!--        <property name="service" ref="service2Lower"/>-->
+        <constructor-arg index="0" ref="service2Lower"/>
     </bean>
 </beans>

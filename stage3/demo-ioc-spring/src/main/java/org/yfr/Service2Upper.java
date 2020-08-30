@@ -4,9 +4,9 @@ public class Service2Upper implements Service {
 
     private Repository repository;
 
-//    public Service2Upper(Repository repository) {
-//        this.repository = repository;
-//    }
+    public Service2Upper(Repository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public String findName() {
