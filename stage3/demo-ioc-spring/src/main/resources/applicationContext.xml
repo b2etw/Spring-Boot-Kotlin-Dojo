@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 	http://www.springframework.org/schema/context
@@ -11,20 +12,21 @@
     <!-- Process annotations on registered beans like @Autowired... -->
     <context:annotation-config/>
 
-    <bean id="repositoryQ" class="org.yfr.RepositoryQ"/>
-    <bean id="repositoryV" class="org.yfr.RepositoryV"/>
+<!--    <bean id="repositoryQ" class="org.yfr.RepositoryQ"/>-->
+<!--    <bean id="repositoryV" class="org.yfr.RepositoryV"/>-->
 
-    <bean id="service2Lower" class="org.yfr.Service2Lower">
-        <!--        <property name="repository" ref="repositoryQ"/>-->
-        <constructor-arg index="0" ref="repositoryQ"/>
-    </bean>
-    <bean id="service2Upper" class="org.yfr.Service2Upper">
-        <!--        <property name="repository" ref="repositoryQ"/>-->
-        <constructor-arg index="0" ref="repositoryQ"/>
-    </bean>
+<!--    <bean id="service2Lower" class="org.yfr.Service2Lower">-->
+<!--        &lt;!&ndash;        <property name="repository" ref="repositoryQ"/>&ndash;&gt;-->
+<!--        <property name="name" value="Vincent"/>-->
+<!--        <constructor-arg index="0" ref="repositoryQ"/>-->
+<!--    </bean>-->
+<!--    <bean id="service2Upper" class="org.yfr.Service2Upper">-->
+<!--        &lt;!&ndash;        <property name="repository" ref="repositoryQ"/>&ndash;&gt;-->
+<!--        <constructor-arg index="0" ref="repositoryV"/>-->
+<!--    </bean>-->
 
-    <bean id="controller" class="org.yfr.Controller">
-        <!--        <property name="service" ref="service2Lower"/>-->
-        <constructor-arg index="0" ref="service2Lower"/>
-    </bean>
+<!--    <bean id="controller" class="org.yfr.Controller">-->
+<!--        &lt;!&ndash;        <property name="service" ref="service2Lower"/>&ndash;&gt;-->
+<!--        <constructor-arg index="0" ref="service2Upper"/>-->
+<!--    </bean>-->
 </beans>
