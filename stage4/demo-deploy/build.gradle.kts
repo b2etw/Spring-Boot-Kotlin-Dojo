@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.3.3.RELEASE"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
+    id("com.google.cloud.tools.jib") version "2.5.0"
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
     kotlin("plugin.jpa") version "1.3.72"
@@ -47,4 +48,22 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "11"
     }
+}
+
+jib {
+    from {
+        image = "openjdk:11-jre-slim"
+    }
+    to {
+        image = "registry.hub.docker.com/taiwanbackendgroup/${project.name}:$version"
+    }
+    container {
+        creationTime = "USE_CURRENT_TIMESTAMP"
+        mainClass = "com.example.demo.DemoApplicationKt"
+        jvmFlags = listOf(
+                "-Xms512m",
+                "-Xmx512m"
+        )
+    }
+    setAllowInsecureRegistries(true)
 }

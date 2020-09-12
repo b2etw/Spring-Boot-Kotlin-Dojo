@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mysql: # root/rootroot
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootroot
+    expose:
+      - 3306
+    ports:
+      - "3306:3306"
+    networks:
+      - default
+
+  demo-deploy:
+    image: registry.hub.docker.com/taiwanbackendgroup/demo-deploy:0.0.1-SNAPSHOT
+    environment:
+      - TZ=Asia/Taipei
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+
+networks:
+  default:
