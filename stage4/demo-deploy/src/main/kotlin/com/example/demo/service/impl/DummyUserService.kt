@@ -13,5 +13,7 @@ class DummyUserService : UserService {
 
     override fun modifyUser(userDto: UserDto) = UserDto(-1, "Dummy, Service Modify", 999)
 
-    override fun removeById(id: Long) { print("Dummy, Service Remove")}
+    override fun removeById(id: Long) {
+        throw RuntimeException("Test Controller Advice")
+    }
 }

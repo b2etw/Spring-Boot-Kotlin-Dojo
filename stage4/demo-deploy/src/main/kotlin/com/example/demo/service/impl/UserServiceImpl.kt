@@ -2,6 +2,7 @@ package com.example.demo.service.impl
 
 import com.example.demo.data.dto.UserDto
 import com.example.demo.data.entity.User
+import com.example.demo.exception.UserCrudException
 import com.example.demo.repository.UserRepository
 import com.example.demo.service.UserService
 import org.springframework.stereotype.Service
@@ -25,12 +26,12 @@ class UserServiceImpl(
             userRepository.findById(id).map {
                 UserDto(it.id!!, "${it.firstName}, ${it.lastName}", it.age)
             }.orElseThrow {
-                RuntimeException("Hello")
+                UserCrudException("$id not found")
             }
 
     override fun modifyUser(userDto: UserDto) =
             userRepository.findById(userDto.id).orElseThrow {
-                RuntimeException()
+                UserCrudException("${userDto.id} not found")
             }.apply {
                 this.firstName = userDto.name.split(",")[0].trim()
                 this.lastName = userDto.name.split(",")[1].trim()
