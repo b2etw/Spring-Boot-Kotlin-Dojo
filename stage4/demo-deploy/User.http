@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ### find user by id
-GET localhost:8080/user?id=3
+GET localhost:8080/user?id=4
 Content-Type: application/json
 
 ### modify user

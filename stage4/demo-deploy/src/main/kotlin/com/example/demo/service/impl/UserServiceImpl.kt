@@ -26,12 +26,12 @@ class UserServiceImpl(
             userRepository.findById(id).map {
                 UserDto(it.id!!, "${it.firstName}, ${it.lastName}", it.age)
             }.orElseThrow {
-                UserCrudException("$id not found")
+                UserCrudException("user id: $id not found in query")
             }
 
     override fun modifyUser(userDto: UserDto) =
             userRepository.findById(userDto.id).orElseThrow {
-                UserCrudException("${userDto.id} not found")
+                UserCrudException("uder id: ${userDto.id} not found in update")
             }.apply {
                 this.firstName = userDto.name.split(",")[0].trim()
                 this.lastName = userDto.name.split(",")[1].trim()
