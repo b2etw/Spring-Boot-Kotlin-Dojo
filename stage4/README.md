@@ -14,15 +14,20 @@
       * ./gradlew clean jibDockerBuild
       * docker-compose up -d
  * summary
+   * create the project
    * a brief introduction of Spring
    * 3-tier architecture
    * basic CRUD
-   * test
+   * unit test
    * deployment
    * api document
+ * homework
+   * crud for Item
+   * crud for Order
 
 ---
 
 # References
 * https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html
 * https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin
+* https://springfox.github.io/springfox/
