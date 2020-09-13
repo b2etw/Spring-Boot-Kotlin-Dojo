@@ -7,10 +7,11 @@
 * Deployment
   * docker run --name mysql -d -p 3306:3306 -e “TZ=Asia/Taipei” -e MYSQL_ROOT_PASSWORD=rootroot mysql:8
     * Jar
-      * ./gradlew build
+      * ./gradlew clean build
       * java -jar build/libs/demo-deploy-0.0.1-SNAPSHOT.jar
     * Docker
-      * 
+      * ./gradlew clean jibDockerBuild
+      * docker-compose up -d
 
 ---
 
