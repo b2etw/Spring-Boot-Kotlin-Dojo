@@ -29,5 +29,5 @@ data class Item(
         var updateTime: LocalDateTime,
 
         @Column
-        var desc: String
+        var description: String
 )

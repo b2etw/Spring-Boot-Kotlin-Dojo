@@ -9,7 +9,7 @@ import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
-@Table
+@Table(name = "orders")
 data class Order(
 
         @Id
@@ -35,5 +35,5 @@ data class Order(
         var updateTime: LocalDateTime,
 
         @Column
-        var desc: String
+        var description: String
 )

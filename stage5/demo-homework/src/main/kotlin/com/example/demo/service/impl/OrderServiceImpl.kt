@@ -15,7 +15,7 @@ import java.time.LocalDateTime
 class OrderServiceImpl(
         val userRepository: UserRepository,
         val itemRepository: ItemRepository,
-        val orderRepository: OrderRepository
+        val OrderRepository: OrderRepository
 ) : OrderService {
 
     override fun addOrder(orderDto: OrderDto) = let {
@@ -26,20 +26,20 @@ class OrderServiceImpl(
             ItemCrudException("item id : ${orderDto.itemId} not found in add")
         }
         val order = Order(null, user.id!!, item.id!!, item.price, orderDto.amount, LocalDateTime.now(), LocalDateTime.now(), "")
-        val savedOrder = orderRepository.save(order)
+        val savedOrder = OrderRepository.save(order)
 
-        OrderDto(savedOrder.id!!, user.id, user.lastName, item.id, item.name, savedOrder.price, savedOrder.amount, savedOrder.createTime, savedOrder.updateTime, savedOrder.desc)
+        OrderDto(savedOrder.id!!, user.id, user.lastName, item.id, item.name, savedOrder.price, savedOrder.amount, savedOrder.createTime, savedOrder.updateTime, savedOrder.description)
     }
 
-    override fun findById(id: Long) = orderRepository.findDtoById(id)
+    override fun findById(id: Long) = OrderRepository.findDtoById(id)
 
     override fun modifyOrder(orderDto: OrderDto) =
-            orderRepository.findById(orderDto.id).orElseThrow {
+            OrderRepository.findById(orderDto.id).orElseThrow {
                 OrderCrudException("user id: ${orderDto.userId} not found in modify")
             }.run {
-                this.copy(userId = orderDto.userId, itemId = orderDto.itemId, price = orderDto.price, amount = orderDto.amount, updateTime = orderDto.updateTime, desc = orderDto.desc)
+                this.copy(userId = orderDto.userId, itemId = orderDto.itemId, price = orderDto.price, amount = orderDto.amount, updateTime = orderDto.updateTime, description = orderDto.description)
             }.run {
-                orderRepository.save(this)
+                OrderRepository.save(this)
             }.run {
                 val user = userRepository.findById(orderDto.userId).orElseThrow {
                     OrderCrudException("user id: ${orderDto.userId} not found in modify")
@@ -48,8 +48,8 @@ class OrderServiceImpl(
                     ItemCrudException("item id : ${orderDto.itemId} not found in modify")
                 }
 
-                OrderDto(this.id!!, user.id!!, user.lastName, item.id!!, item.name, this.price, this.amount, this.createTime, this.updateTime, this.desc)
+                OrderDto(this.id!!, user.id!!, user.lastName, item.id!!, item.name, this.price, this.amount, this.createTime, this.updateTime, this.description)
             }
 
-    override fun removeById(id: Long) = orderRepository.deleteById(id)
+    override fun removeById(id: Long) = OrderRepository.deleteById(id)
 }

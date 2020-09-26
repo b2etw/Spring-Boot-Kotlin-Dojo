@@ -22,7 +22,7 @@ class ItemServiceImpl(
                 this.name = item.name
                 this.price = item.price
                 this.updateTime = item.updateTime
-                this.desc = item.desc
+                this.description = item.description
                 itemRepository.save(this)
             }
 

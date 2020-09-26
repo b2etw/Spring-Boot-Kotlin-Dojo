@@ -22,5 +22,5 @@ data class OrderDto(
 
         val updateTime: LocalDateTime,
 
-        val desc: String
+        val description: String
 )

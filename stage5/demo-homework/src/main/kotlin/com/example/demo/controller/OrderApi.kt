@@ -1,6 +1,6 @@
 package com.example.demo.controller
 
-import com.example.demo.data.dto.UserDto
+import com.example.demo.data.dto.OrderDto
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 
-interface UserApi {
+interface OrderApi {
 
-    @PostMapping("/users")
-    fun addUser(@RequestBody userDto: UserDto): UserDto
+    @PostMapping("/orders")
+    fun addOrder(@RequestBody orderDto: OrderDto): OrderDto
 
-    @GetMapping("/users")
-    fun findById(@RequestParam id: Long): UserDto
+    @GetMapping("/orders")
+    fun findById(@RequestParam id: Long): OrderDto
 
-    @PutMapping("/users")
-    fun modifyUser(@RequestBody userDto: UserDto): UserDto
+    @PutMapping("/orders")
+    fun modifyOrder(@RequestBody orderDto: OrderDto): OrderDto
 
-    @DeleteMapping("/users")
+    @DeleteMapping("/orders")
     fun removeById(@RequestParam id: Long)
 }
