@@ -1,4 +1,4 @@
-package com.example.demo.repository
+package com.example.demo.data.repository
 
 import com.example.demo.data.entity.Item
 import org.springframework.data.jpa.repository.JpaRepository

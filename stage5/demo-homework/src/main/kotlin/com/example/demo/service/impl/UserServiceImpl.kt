@@ -2,8 +2,8 @@ package com.example.demo.service.impl
 
 import com.example.demo.data.dto.UserDto
 import com.example.demo.data.entity.User
-import com.example.demo.exception.UserCrudException
-import com.example.demo.repository.UserRepository
+import com.example.demo.core.exception.UserCrudException
+import com.example.demo.data.repository.UserRepository
 import com.example.demo.service.UserService
 import org.springframework.stereotype.Service
 

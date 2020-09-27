@@ -1,4 +1,4 @@
-package com.example.demo.exception
+package com.example.demo.core.exception
 
 open class OrderCrudException : RuntimeException {
 

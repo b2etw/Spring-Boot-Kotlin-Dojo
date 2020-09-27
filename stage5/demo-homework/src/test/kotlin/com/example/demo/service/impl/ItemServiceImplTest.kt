@@ -1,7 +1,7 @@
 package com.example.demo.service.impl
 
 import com.example.demo.data.entity.Item
-import com.example.demo.repository.ItemRepository
+import com.example.demo.data.repository.ItemRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentMatchers.any

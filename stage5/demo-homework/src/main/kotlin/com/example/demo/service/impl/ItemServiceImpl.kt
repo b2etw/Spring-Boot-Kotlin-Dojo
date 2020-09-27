@@ -1,8 +1,8 @@
 package com.example.demo.service.impl
 
 import com.example.demo.data.entity.Item
-import com.example.demo.exception.ItemCrudException
-import com.example.demo.repository.ItemRepository
+import com.example.demo.core.exception.ItemCrudException
+import com.example.demo.data.repository.ItemRepository
 import com.example.demo.service.ItemService
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime

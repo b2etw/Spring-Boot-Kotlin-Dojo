@@ -2,7 +2,7 @@ package com.example.demo.service.impl
 
 import com.example.demo.data.dto.UserDto
 import com.example.demo.data.entity.User
-import com.example.demo.repository.UserRepository
+import com.example.demo.data.repository.UserRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
