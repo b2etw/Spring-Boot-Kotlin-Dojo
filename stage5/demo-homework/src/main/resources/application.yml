@@ -1,4 +1,6 @@
 spring:
   profiles: docker
+  redis:
+    host: redis
   datasource:
     url: jdbc:mysql://mysql:3306/test

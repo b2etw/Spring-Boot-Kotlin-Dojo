@@ -1,5 +1,7 @@
 package com.example.demo.data.dto
 
+import java.io.Serializable
+
 data class UserDto(
 
         val id: Long,
@@ -7,4 +9,4 @@ data class UserDto(
         val name: String,
 
         val age: Int
-)
+): Serializable

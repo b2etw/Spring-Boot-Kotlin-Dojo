@@ -1,5 +1,6 @@
 package com.example.demo.data.dto
 
+import java.io.Serializable
 import java.time.LocalDateTime
 
 data class OrderDto(
@@ -23,4 +24,4 @@ data class OrderDto(
         val updateTime: LocalDateTime,
 
         val description: String
-)
+): Serializable

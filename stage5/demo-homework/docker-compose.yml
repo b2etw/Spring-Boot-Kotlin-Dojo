@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  redis:
+    image: redis:6
+    expose:
+      - 6379
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+
   mysql: # root/rootroot
     image: mysql:8
     environment:
@@ -12,8 +21,8 @@ services:
     networks:
       - default
 
-  demo-deploy:
-    image: registry.hub.docker.com/taiwanbackendgroup/demo-deploy:0.0.1-SNAPSHOT
+  demo-homework:
+    image: registry.hub.docker.com/taiwanbackendgroup/demo-homework:0.0.1-SNAPSHOT
     environment:
       - TZ=Asia/Taipei
       - SPRING_PROFILES_ACTIVE=docker

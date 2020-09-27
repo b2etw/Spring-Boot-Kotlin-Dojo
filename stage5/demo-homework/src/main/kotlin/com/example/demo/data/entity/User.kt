@@ -1,5 +1,6 @@
 package com.example.demo.data.entity
 
+import java.io.Serializable
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -23,4 +24,4 @@ data class User(
 
         @Column
         var age: Int
-)
+): Serializable
