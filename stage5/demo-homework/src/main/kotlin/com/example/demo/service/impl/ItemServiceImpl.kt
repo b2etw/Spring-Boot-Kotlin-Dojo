@@ -5,13 +5,14 @@ import com.example.demo.exception.ItemCrudException
 import com.example.demo.repository.ItemRepository
 import com.example.demo.service.ItemService
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 
 @Service
 class ItemServiceImpl(
         var itemRepository: ItemRepository
 ) : ItemService {
 
-    override fun addItem(item: Item) = itemRepository.save(item)
+    override fun addItem(item: Item) = itemRepository.save(item.copy(updateTime = LocalDateTime.now()))
 
     override fun findById(id: Long) = itemRepository.findById(id).orElseThrow { ItemCrudException("item id: $id not found in query") }
 
@@ -21,7 +22,7 @@ class ItemServiceImpl(
             }.run {
                 this.name = item.name
                 this.price = item.price
-                this.updateTime = item.updateTime
+                this.updateTime = LocalDateTime.now()
                 this.description = item.description
                 itemRepository.save(this)
             }

@@ -37,7 +37,7 @@ class UserControllerTest {
         given(userServiceImpl.addUser(userDto)).willReturn(userDto.copy(1))
 
         mockMvc.perform(
-                post("/user")
+                post("/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(userDto))
         )
@@ -52,7 +52,7 @@ class UserControllerTest {
         given(userServiceImpl.findById(1)).willReturn(userDto)
 
         mockMvc.perform(
-                get("/user")
+                get("/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("id", "1")
         )
@@ -67,7 +67,7 @@ class UserControllerTest {
         given(userServiceImpl.modifyUser(userDto)).willReturn(userDto)
 
         mockMvc.perform(
-                put("/user")
+                put("/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(userDto))
         )
@@ -79,7 +79,7 @@ class UserControllerTest {
     @Test
     fun testRemoveUser() {
         mockMvc.perform(
-                delete("/user")
+                delete("/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("id", "1")
         )

@@ -22,18 +22,21 @@ class UserServiceImplTest {
 
     @Test
     fun testAddUser() {
-        given(userRepository.save(User(null, "Vincent", "Huang", 90))).willReturn(User(1, "Vincent", "Huang", 90))
+        given(userRepository.findById(1)).willReturn(Optional.of(User(1, "Vincent", "Huang", 88)))
 
-        Assertions.assertEquals("Vincent, Huang", userServiceImpl.addUser(UserDto(-1, "Vincent, Huang", 90)).name)
-        Assertions.assertEquals(90, userServiceImpl.addUser(UserDto(-1, "Vincent, Huang", 90)).age)
+        val userDto = UserDto(-1, "Vincent, Huang", 90)
+        val addUser = userServiceImpl.addUser(userDto)
+        Assertions.assertEquals("Vincent, Huang", addUser.name)
+        Assertions.assertEquals(90, addUser.age)
     }
 
     @Test
     fun testFindById() {
         given(userRepository.findById(1)).willReturn(Optional.of(User(1, "Vincent", "Huang", 88)))
 
-        Assertions.assertEquals("Vincent, Huang", userServiceImpl.findById(1).name)
-        Assertions.assertEquals(88, userServiceImpl.findById(1).age)
+        val userDto = userServiceImpl.findById(1)
+        Assertions.assertEquals("Vincent, Huang", userDto.name)
+        Assertions.assertEquals(88, userDto.age)
     }
 
     @Test
@@ -41,7 +44,9 @@ class UserServiceImplTest {
         given(userRepository.findById(1)).willReturn(Optional.of(User(1, "Vincent", "Huang", 88)))
         given(userRepository.save(User(1, "Victor", "Huang", 90))).willReturn(User(1, "Victor", "Huang", 90))
 
-        Assertions.assertEquals("Victor, Huang", userServiceImpl.modifyUser(UserDto(1, "Victor, Huang", 90)).name)
-        Assertions.assertEquals(90, userServiceImpl.modifyUser(UserDto(1, "Victor, Huang", 90)).age)
+        val userDto = UserDto(1, "Victor, Huang", 90)
+        val modifyUser = userServiceImpl.modifyUser(userDto)
+        Assertions.assertEquals("Victor, Huang", modifyUser.name)
+        Assertions.assertEquals(90, modifyUser.age)
     }
 }
