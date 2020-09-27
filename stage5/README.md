@@ -4,6 +4,11 @@
 * Check the Homework
   * crud for Item
   * crud for Order
-* logger https://www.baeldung.com/kotlin-logging
+* logger
 * Schedule
 * Caching
+
+# References
+* https://www.baeldung.com/kotlin-logging
+* https://www.baeldung.com/spring-scheduled-tasks
+* https://www.baeldung.com/spring-cache-tutorial
