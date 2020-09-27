@@ -1,8 +1,9 @@
 package com.example.demo.controller.impl
 
-import com.example.demo.data.dto.UserDto
-import com.example.demo.service.impl.UserServiceImpl
-import com.fasterxml.jackson.databind.ObjectMapper
+import com.example.demo.core.ext.Json
+import com.example.demo.core.ext.any
+import com.example.demo.data.entity.Item
+import com.example.demo.service.impl.ItemServiceImpl
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,68 +19,67 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import java.time.LocalDateTime
 
-@WebMvcTest(UserController::class)
+@WebMvcTest(ItemController::class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class UserControllerTest {
+class ItemControllerTest {
 
     @MockBean
-    lateinit var userServiceImpl: UserServiceImpl
+    lateinit var itemServiceImpl: ItemServiceImpl
 
     @Autowired
     lateinit var mockMvc: MockMvc
 
-    private val objectMapper = ObjectMapper()
-
     @Test
-    fun testAddUser() {
-        val userDto = UserDto(-1, "Vincent, Huang", 88)
-        given(userServiceImpl.addUser(userDto)).willReturn(userDto.copy(1))
+    fun testAddItem() {
+        val item = Item(null, "soccer ball", 10.0f, LocalDateTime.now(), LocalDateTime.now(), "")
+        given(itemServiceImpl.addItem(any(Item::class.java))).willReturn(item.copy(1))
 
         mockMvc.perform(
-                post("/users")
+                post("/items")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(userDto))
+                        .content(Json.objectMapper.writeValueAsString(item))
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(objectMapper.writeValueAsString(userDto.copy(1))))
+                .andExpect(content().string(Json.objectMapper.writeValueAsString(item.copy(1))))
     }
 
     @Test
     fun testFindById() {
-        val userDto = UserDto(1, "Vincent, Huang", 88)
-        given(userServiceImpl.findById(1)).willReturn(userDto)
+        val item = Item(1, "soccer ball", 10.0f, LocalDateTime.now(), LocalDateTime.now(), "")
+        given(itemServiceImpl.findById(1)).willReturn(item)
 
         mockMvc.perform(
-                get("/users")
+                get("/items")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("id", "1")
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(objectMapper.writeValueAsString(userDto)))
+                .andExpect(content().string(Json.objectMapper.writeValueAsString(item)))
     }
 
     @Test
-    fun testModifyUser() {
-        val userDto = UserDto(1, "Victor, Huang", 90)
-        given(userServiceImpl.modifyUser(userDto)).willReturn(userDto)
+    fun testModifyItem() {
+        val item = Item(99, "soccer ball", 10.0f, LocalDateTime.now(), LocalDateTime.now(), "")
+        given(itemServiceImpl.modifyItem(any(Item::class.java))).willReturn(item)
 
         mockMvc.perform(
-                put("/users")
+                put("/items")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(userDto))
+                        .content(Json.objectMapper.writeValueAsString(item))
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(objectMapper.writeValueAsString(userDto)))
+                .andExpect(content().string(Json.objectMapper.writeValueAsString(item)))
     }
 
     @Test
-    fun testRemoveUser() {
+    fun testRemoveItem() {
         mockMvc.perform(
-                delete("/users")
+                delete("/items")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("id", "1")
         )

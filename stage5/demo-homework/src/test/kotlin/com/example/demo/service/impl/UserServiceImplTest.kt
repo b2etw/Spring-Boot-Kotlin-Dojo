@@ -7,11 +7,16 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
+import org.springframework.test.annotation.DirtiesContext
 import java.util.Optional
 
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@EnableAutoConfiguration(exclude = [RedisAutoConfiguration::class])
 class UserServiceImplTest {
 
     @MockBean
@@ -22,7 +27,8 @@ class UserServiceImplTest {
 
     @Test
     fun testAddUser() {
-        given(userRepository.findById(1)).willReturn(Optional.of(User(1, "Vincent", "Huang", 88)))
+        val user = User(null, "Vincent", "Huang", 90)
+        given(userRepository.save(user)).willReturn(user.copy(1))
 
         val userDto = UserDto(-1, "Vincent, Huang", 90)
         val addUser = userServiceImpl.addUser(userDto)

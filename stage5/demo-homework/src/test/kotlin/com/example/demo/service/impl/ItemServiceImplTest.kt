@@ -1,18 +1,20 @@
 package com.example.demo.service.impl
 
+import com.example.demo.core.ext.any
 import com.example.demo.data.entity.Item
 import com.example.demo.data.repository.ItemRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import org.mockito.ArgumentMatchers.any
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
+import org.springframework.test.annotation.DirtiesContext
 import java.time.LocalDateTime
 import java.util.Optional
 
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class ItemServiceImplTest {
 
     @MockBean

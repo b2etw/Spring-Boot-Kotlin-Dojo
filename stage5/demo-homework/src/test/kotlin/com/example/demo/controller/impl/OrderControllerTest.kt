@@ -1,8 +1,9 @@
 package com.example.demo.controller.impl
 
-import com.example.demo.data.dto.UserDto
-import com.example.demo.service.impl.UserServiceImpl
-import com.fasterxml.jackson.databind.ObjectMapper
+import com.example.demo.core.ext.Json
+import com.example.demo.core.ext.any
+import com.example.demo.data.dto.OrderDto
+import com.example.demo.service.impl.OrderServiceImpl
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,68 +19,67 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import java.time.LocalDateTime
 
-@WebMvcTest(UserController::class)
+@WebMvcTest(OrderController::class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class UserControllerTest {
+class OrderControllerTest {
 
     @MockBean
-    lateinit var userServiceImpl: UserServiceImpl
+    lateinit var orderServiceImpl: OrderServiceImpl
 
     @Autowired
     lateinit var mockMvc: MockMvc
 
-    private val objectMapper = ObjectMapper()
-
     @Test
-    fun testAddUser() {
-        val userDto = UserDto(-1, "Vincent, Huang", 88)
-        given(userServiceImpl.addUser(userDto)).willReturn(userDto.copy(1))
+    fun testAddOrder() {
+        val orderDto = OrderDto(-1, 1, "", 1, "", 10.0f, 1, LocalDateTime.now(), LocalDateTime.now(), "")
+        given(orderServiceImpl.addOrder(any(OrderDto::class.java))).willReturn(orderDto.copy(1))
 
         mockMvc.perform(
-                post("/users")
+                post("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(userDto))
+                        .content(Json.objectMapper.writeValueAsString(orderDto))
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(objectMapper.writeValueAsString(userDto.copy(1))))
+                .andExpect(content().string(Json.objectMapper.writeValueAsString(orderDto.copy(1))))
     }
 
     @Test
     fun testFindById() {
-        val userDto = UserDto(1, "Vincent, Huang", 88)
-        given(userServiceImpl.findById(1)).willReturn(userDto)
+        val orderDto = OrderDto(1, 1, "Huang", 1, "soccer ball", 10.0f, 1, LocalDateTime.now(), LocalDateTime.now(), "")
+        given(orderServiceImpl.findById(1)).willReturn(orderDto)
 
         mockMvc.perform(
-                get("/users")
+                get("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("id", "1")
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(objectMapper.writeValueAsString(userDto)))
+                .andExpect(content().string(Json.objectMapper.writeValueAsString(orderDto)))
     }
 
     @Test
-    fun testModifyUser() {
-        val userDto = UserDto(1, "Victor, Huang", 90)
-        given(userServiceImpl.modifyUser(userDto)).willReturn(userDto)
+    fun testModifyOrder() {
+        val orderDto = OrderDto(1, 1, "Huang", 1, "soccer ball", 10.0f, 1, LocalDateTime.now(), LocalDateTime.now(), "")
+        given(orderServiceImpl.modifyOrder(any(OrderDto::class.java))).willReturn(orderDto)
 
         mockMvc.perform(
-                put("/users")
+                put("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(userDto))
+                        .content(Json.objectMapper.writeValueAsString(orderDto))
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(objectMapper.writeValueAsString(userDto)))
+                .andExpect(content().string(Json.objectMapper.writeValueAsString(orderDto)))
     }
 
     @Test
-    fun testRemoveUser() {
+    fun testRemoveOrder() {
         mockMvc.perform(
-                delete("/users")
+                delete("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("id", "1")
         )
