@@ -4,6 +4,5 @@
 * Check the Homework
   * crud for Item
   * crud for Order
-* logger https://www.baeldung.com/kotlin-logging
 * Schedule
 * Caching
