@@ -4,6 +4,12 @@
 * Message Queue
   * http://localhost:15672/
 * Extension Function
+* Why I Love KT?
+  * JVM Family
+  * Syntax
+  * Data Class
+  * Scope Function
+  * Extension Function
 
 # References
 * https://spring.io/guides/gs/messaging-rabbitmq/
