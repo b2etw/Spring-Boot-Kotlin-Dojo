@@ -2,5 +2,7 @@ spring:
   profiles: docker
   redis:
     host: redis
+  rabbitmq:
+    host: rabbitmq
   datasource:
     url: jdbc:mysql://mysql:3306/test

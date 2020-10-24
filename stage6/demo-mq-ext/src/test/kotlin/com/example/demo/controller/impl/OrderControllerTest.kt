@@ -1,7 +1,7 @@
 package com.example.demo.controller.impl
 
-import com.example.demo.core.ext.Json
 import com.example.demo.core.ext.any
+import com.example.demo.core.ext.toJsonString
 import com.example.demo.data.dto.OrderDto
 import com.example.demo.service.impl.OrderServiceImpl
 import org.junit.jupiter.api.Test
@@ -39,11 +39,11 @@ class OrderControllerTest {
         mockMvc.perform(
                 post("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(Json.objectMapper.writeValueAsString(orderDto))
+                        .content(orderDto.toJsonString())
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(Json.objectMapper.writeValueAsString(orderDto.copy(1))))
+                .andExpect(content().string(orderDto.copy(1).toJsonString()))
     }
 
     @Test
@@ -58,7 +58,7 @@ class OrderControllerTest {
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(Json.objectMapper.writeValueAsString(orderDto)))
+                .andExpect(content().string(orderDto.toJsonString()))
     }
 
     @Test
@@ -69,11 +69,11 @@ class OrderControllerTest {
         mockMvc.perform(
                 put("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(Json.objectMapper.writeValueAsString(orderDto))
+                        .content(orderDto.toJsonString())
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(Json.objectMapper.writeValueAsString(orderDto)))
+                .andExpect(content().string(orderDto.toJsonString()))
     }
 
     @Test

@@ -1,7 +1,7 @@
 package com.example.demo.controller.impl
 
-import com.example.demo.core.ext.Json
 import com.example.demo.core.ext.any
+import com.example.demo.core.ext.toJsonString
 import com.example.demo.data.entity.Item
 import com.example.demo.service.impl.ItemServiceImpl
 import org.junit.jupiter.api.Test
@@ -39,11 +39,11 @@ class ItemControllerTest {
         mockMvc.perform(
                 post("/items")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(Json.objectMapper.writeValueAsString(item))
+                        .content(item.toJsonString())
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(Json.objectMapper.writeValueAsString(item.copy(1))))
+                .andExpect(content().string(item.copy(1).toJsonString()))
     }
 
     @Test
@@ -58,7 +58,7 @@ class ItemControllerTest {
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(Json.objectMapper.writeValueAsString(item)))
+                .andExpect(content().string(item.toJsonString()))
     }
 
     @Test
@@ -69,11 +69,11 @@ class ItemControllerTest {
         mockMvc.perform(
                 put("/items")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(Json.objectMapper.writeValueAsString(item))
+                        .content(item.toJsonString())
         )
                 .andDo(print())
                 .andExpect(status().isOk)
-                .andExpect(content().string(Json.objectMapper.writeValueAsString(item)))
+                .andExpect(content().string(item.toJsonString()))
     }
 
     @Test
