@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class OrderController(
-        val OrderService: OrderService
+        val orderService: OrderService
 ) : OrderApi {
 
-    override fun addOrder(orderDto: OrderDto) = OrderService.addOrder(orderDto)
+    override fun addOrder(orderDto: OrderDto) = orderService.addOrder(orderDto)
 
-    override fun findById(id: Long) = OrderService.findById(id)
+    override fun findById(id: Long) = orderService.findById(id)
 
-    override fun modifyOrder(orderDto: OrderDto) = OrderService.modifyOrder(orderDto)
+    override fun modifyOrder(orderDto: OrderDto) = orderService.modifyOrder(orderDto)
 
-    override fun removeById(id: Long) = OrderService.removeById(id)
+    override fun removeById(id: Long) = orderService.removeById(id)
 }

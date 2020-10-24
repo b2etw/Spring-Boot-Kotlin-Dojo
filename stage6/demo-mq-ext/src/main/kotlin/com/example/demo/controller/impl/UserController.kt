@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class UserController(
-        val realUserService : UserService
+        val userService : UserService
 ) : UserApi {
 
-    override fun addUser(userDto: UserDto) = realUserService.addUser(userDto)
+    override fun addUser(userDto: UserDto) = userService.addUser(userDto)
 
-    override fun findById(id: Long) = realUserService.findById(id)
+    override fun findById(id: Long) = userService.findById(id)
 
-    override fun modifyUser(userDto: UserDto) = realUserService.modifyUser(userDto)
+    override fun modifyUser(userDto: UserDto) = userService.modifyUser(userDto)
 
-    override fun removeById(id: Long) = realUserService.removeById(id)
+    override fun removeById(id: Long) = userService.removeById(id)
 }

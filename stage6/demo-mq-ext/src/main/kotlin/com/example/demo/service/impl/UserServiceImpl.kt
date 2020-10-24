@@ -10,7 +10,7 @@ import org.springframework.cache.annotation.CachePut
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 
-@Service("realUserService")
+@Service
 class UserServiceImpl(
         val userRepository: UserRepository
 ) : UserService {
