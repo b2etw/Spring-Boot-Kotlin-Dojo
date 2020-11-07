@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:6
+    expose:
+      - 6379
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=rabbitmq
+    expose:
+      - 5672
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - default
+
+  mysql: # root/rootroot
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootroot
+    expose:
+      - 3306
+    ports:
+      - "3306:3306"
+    networks:
+      - default
+
+  demo-mq-ext:
+    image: registry.hub.docker.com/taiwanbackendgroup/demo-aop:0.0.1-SNAPSHOT
+    environment:
+      - TZ=Asia/Taipei
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+
+networks:
+  default:
