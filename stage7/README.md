@@ -11,6 +11,7 @@
     * Authentication, Caching, Context passing, Error handling, Lazy loading, Logging, Tracing, Profiling, Monitoring, Transactions
 
 # References
+* https://openhome.cc/Gossip/SpringGossip/AOPConcept.html
 * https://openhome.cc/Gossip/Spring/Pointcut.html
 * https://juejin.im/post/6844903969433583624
 * https://www.itread01.com/content/1548979772.html
