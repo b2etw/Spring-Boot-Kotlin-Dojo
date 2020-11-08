@@ -1,5 +1,5 @@
 ### add user
-POST localhost:8080/user
+POST localhost:8080/users
 Content-Type: application/json
 
 {
@@ -9,11 +9,11 @@ Content-Type: application/json
 }
 
 ### find user by id
-GET localhost:8080/user?id=4
+GET localhost:8080/users?id=4
 Content-Type: application/json
 
 ### modify user
-PUT localhost:8080/user
+PUT localhost:8080/users
 Content-Type: application/json
 
 {
@@ -23,4 +23,4 @@ Content-Type: application/json
 }
 
 ### remove user by id
-DELETE localhost:8080/user?id=2
+DELETE localhost:8080/users?id=2
