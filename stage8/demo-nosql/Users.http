@@ -4,6 +4,22 @@ Content-Type: application/json
 
 {
   "id": "",
-  "name": "Hans, Huang",
-  "age": 99
+  "name": "Vince, Huang",
+  "age": 100
 }
+
+### find user by age
+GET localhost:8080/users?age=100
+
+### modify user
+PUT localhost:8080/users
+Content-Type: application/json
+
+{
+  "id": "5fba1a5fcfa2493e6b27d397",
+  "name": "Hans, Huang",
+  "age": 100
+}
+
+### delete user by id
+DELETE localhost:8080/users?id=5fba1a5fcfa2493e6b27d397
