@@ -14,8 +14,8 @@ class TestController(
     @PostMapping("/test")
     fun test(@RequestBody userDto: UserDto): Unit {
         stringRedisTemplate.opsForValue().set("1", userDto.toString())
-        stringRedisTemplate.opsForList().leftPush("2", userDto.toString())
-        stringRedisTemplate.opsForSet().add("3", userDto.toString())
+        stringRedisTemplate.opsForList().leftPush("list", userDto.toString())
+        stringRedisTemplate.opsForSet().add("set", userDto.toString())
         stringRedisTemplate.opsForHash<String, String>().put("test", "1", userDto.toString())
     }
 }
