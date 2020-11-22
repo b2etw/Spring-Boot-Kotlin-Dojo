@@ -1,5 +1,6 @@
 # Agenda
-* [Review](https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/edit/master/stage6/README.md)
+* Review
+  * https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/blob/master/stage6/README.md
 * [Request Chain](https://raw.githubusercontent.com/b2etw/Spring-Boot-Kotlin-Dojo/master/stage7/request-chain.png)
 * AOP (Aspect-Oriented Programming)
   * @Aspect
