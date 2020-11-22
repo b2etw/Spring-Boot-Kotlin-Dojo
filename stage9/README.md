@@ -15,6 +15,12 @@
     * Invoke the method and get result
   * Assert
     * validate the return value
+* Service
+  * MockBean
+  * Autowired with H2
+* Controller
+  * MockMvc
+  * TestRestTemplate
 
 # References
 * 11
