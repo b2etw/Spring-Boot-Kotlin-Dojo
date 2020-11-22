@@ -17,7 +17,7 @@ This is a activity in https://tw.kotlin.tips/dojos. Welcome everyone who interes
   * https://github.com/b2etw/Spring-Boot-Dojo/tree/master/stage7
 * 2020/11/22
   * https://github.com/b2etw/Spring-Boot-Dojo/tree/master/stage8
-* 2020/??/??
+* 2020/11/29
   * https://github.com/b2etw/Spring-Boot-Dojo/tree/master/stage9
-* 2020/12/??
+* 2020/12/06
   * https://github.com/b2etw/Spring-Boot-Dojo/tree/master/stage10
