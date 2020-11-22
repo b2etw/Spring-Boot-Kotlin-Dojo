@@ -1,5 +1,6 @@
 # Agenda
-* [Review](https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/edit/master/stage7/README.md)
+* Review
+  * https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/blob/master/stage7/README.md
 * NoSQL
   * MongoDB
     * command
