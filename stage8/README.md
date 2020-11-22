@@ -10,8 +10,10 @@
     * ObjectId, save & insert, no need to query for update, json & schemeless
     * http://localhost:8081/
   * Redis
-    * 
+    * data structure
 
 # References
 * https://www.tutorialspoint.com/mongodb/mongodb_advantages.htm
 * https://www.runoob.com/mongodb/mongodb-tutorial.html
+* https://www.runoob.com/redis/redis-tutorial.html
+* https://redislabs.com/redis-enterprise/data-structures/

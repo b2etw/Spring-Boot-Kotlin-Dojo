@@ -23,3 +23,13 @@ Content-Type: application/json
 
 ### delete user by id
 DELETE localhost:8080/users?id=5fba1a5fcfa2493e6b27d397
+
+### test
+POST localhost:8080/test
+Content-Type: application/json
+
+{
+  "id": "",
+  "name": "Vince, Huang",
+  "age": 100
+}
