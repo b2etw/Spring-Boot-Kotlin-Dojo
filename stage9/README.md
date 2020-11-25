@@ -2,7 +2,11 @@
 * Review
   * https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/blob/master/stage8/README.md
 * TDD
-  * Jump Fast !
+  * Jump Fast and Generate Fast!
+      * IDE
+      * Plugins
+        * AceJump
+	* Custom Postfix Template
   * Write code backward !
   * Red, Green, Refactor
   * Baby Step
@@ -23,4 +27,4 @@
   * TestRestTemplate
 
 # References
-* 11
+* https://www.dotblogs.com.tw/hatelove/2015/12/14/explanation-the-three-laws-of-tdd
