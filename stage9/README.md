@@ -5,14 +5,14 @@
     * Just Write Code First
     * ...
   * Jump Fast and Generate Fast
-      * IDE
-        * ^N
-	* F2
-	* Alt + Enter
-	* Cmd + E
-      * Plugins
-        * AceJump
-	* Custom Postfix Template
+    * HotKeys
+      * ^N
+      * F2
+      * Alt + Enter
+      * Cmd + E
+    * Plugins
+      * AceJump
+      * Custom Postfix Template
   * Write code backward
   * Red, Green, Refactor
   * Baby Step
