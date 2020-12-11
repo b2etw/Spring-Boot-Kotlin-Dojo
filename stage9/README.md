@@ -1,13 +1,19 @@
 # Agenda
-* Review
-  * https://github.com/b2etw/Spring-Boot-Kotlin-Dojo/blob/master/stage8/README.md
 * TDD
-  * Jump Fast and Generate Fast!
-      * IDE
-      * Plugins
-        * AceJump
-	* Custom Postfix Template
-  * Write code backward !
+  * Misconception
+    * No Time
+    * Just Write Code First
+    * ...
+  * Jump Fast and Generate Fast
+    * HotKeys
+      * ^N
+      * F2
+      * Alt + Enter
+      * Cmd + E
+    * Plugins
+      * AceJump
+      * Custom Postfix Template
+  * Write code backward
   * Red, Green, Refactor
   * Baby Step
   * Protect your production code with test cases
